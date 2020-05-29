@@ -26,3 +26,7 @@ variable "min_size" {
 variable "max_size" {
   description = "The maximum number of EC2 Instances in the ASG"
 }
+
+variable "key_name" {
+  description = "Key Pair to add to the Instance for login"
+}

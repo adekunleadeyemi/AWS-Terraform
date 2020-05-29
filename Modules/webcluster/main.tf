@@ -7,6 +7,7 @@ resource "aws_launch_configuration" "example" {
   instance_type   = "${var.instance_type}"
   security_groups = ["${aws_security_group.instance.id}"]
   user_data       = "${data.template_file.user_data.rendered}"
+  key_name        = "${var.key_name}"
 
   lifecycle {
     create_before_destroy = true
@@ -110,6 +111,6 @@ data "terraform_remote_state" "db" {
   config {
     bucket = "${var.db_remote_state_bucket}"
     key    = "${var.db_remote_state_key}"
-    region = "us-east-1"
+    region = "eu-west-2"
   }
 }

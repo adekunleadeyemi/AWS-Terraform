@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "eu-west-2"
 }
 
 module "webcluster" {
@@ -16,6 +16,7 @@ module "webcluster" {
   instance_type = "m4.large"
   min_size      = 2
   max_size      = 10
+  key_name      = "new-keypair"
 }
 
 resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {
